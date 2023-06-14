@@ -31,15 +31,13 @@ async function saveUser(userId, messages) {
 			messages: messages.map(({ role, content }) => ({ role, content })),
 		});
 		await user.save();
-		console.log('New user created:', user);
 	}
 	else {
 		if (user.messages.length > 5) {
-			user.messages.splice(0, 2);
+			user.messages.splice(0, 1);
 		}
 		user.messages.push(...messages);
 		await user.save();
-		console.log('User updated:', user);
 	}
 }
 
