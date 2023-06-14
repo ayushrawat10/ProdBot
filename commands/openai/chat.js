@@ -12,10 +12,11 @@ module.exports = {
 
 	async execute(interaction) {
 		const userMessage = interaction.options.getString('message');
+		const userId = interaction.user.id;
 
 		// Send the user's message to the AI model
 		interaction.deferReply({ ephemeral: true });
-		const aiResponse = await sendMessageToAI(userMessage);
+		const aiResponse = await sendMessageToAI(userId, userMessage);
 		await interaction.editReply(aiResponse);
 	},
 };

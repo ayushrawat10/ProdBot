@@ -2,20 +2,27 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-// const { Configuration, OpenAIApi } = require('openai');
 require('dotenv').config();
+const { connect } = require('./util/database');
+
+
+// Connect to MongoDB
+connect();
 
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+// Login to the client using the token
 client.login(process.env.token);
-
+// Create a new collection for commands
 client.commands = new Collection();
+
 
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
+// Load all commands
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -32,7 +39,7 @@ for (const folder of commandFolders) {
 	}
 }
 
-
+// When the client is ready, run this code
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
