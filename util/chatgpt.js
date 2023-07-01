@@ -11,7 +11,6 @@ const chatgpt = {
 	sendMessageToAI: async function(userId, message) {
 		this.messages = await getUserMessages(userId);
 		this.messages.push({ role: 'user', content: message });
-
 		try {
 			const chatGPTinst = await openai.createChatCompletion({
 				model: 'gpt-3.5-turbo',

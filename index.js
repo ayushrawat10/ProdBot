@@ -4,6 +4,9 @@ const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
 const { connect } = require('./util/database');
+// const calendar = require('./util/calendar');
+// const calendartemp = require('./util/calendartemp');
+// require('./util/databasemanager/saveCredentials');
 
 
 // Connect to MongoDB
