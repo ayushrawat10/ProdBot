@@ -1,5 +1,5 @@
 # ProdBot
-Prod Bot - your ultimate productivity companion! 🚀🎵
+Prod Bot - your ultimate Discord productivity companion! 🚀🎵
 
 
 Prod Bot is a versatile Discord bot designed to boost your productivity and enhance your music experience. With a range of powerful features, it's your go-to assistant for efficient work sessions and enjoyable music sessions.
